@@ -7,13 +7,9 @@ import ShopFor from "./ShopFor";
 import Eyeglasses from "./Eyeglasses";
 import Sunglassess from "./Sunglassess";
 import Lensess from "./Lensess";
-import Logo from "../../assets/Logo.svg"
 
-// Lazy-loaded sections (optional for performance)
-const About = lazy(() => import("./About"));
-const Products = lazy(() => import("./Products"));
-const Lenses = lazy(() => import("./Lenses"));
-const Sunglasses = lazy(() => import("./Sunglasses"));
+
+
 const Choose = lazy(() => import("./Choose"));
 const HappyCustomers = lazy(() => import("./HappyCustomers"));
 
