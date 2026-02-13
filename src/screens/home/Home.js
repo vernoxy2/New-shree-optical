@@ -7,6 +7,7 @@ import ShopFor from "./ShopFor";
 import Eyeglasses from "./Eyeglasses";
 import Sunglassess from "./Sunglassess";
 import Lensess from "./Lensess";
+import Logo from "../../assets/Logo.svg"
 
 // Lazy-loaded sections (optional for performance)
 const About = lazy(() => import("./About"));
@@ -26,7 +27,7 @@ const Home = () => {
       <PartnerSlider />
       
       {/* Lazy-loaded Sections */}
-      <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
+      {/* <Suspense fallback={<div className="text-center py-10"><img src={Logo} alt="logo" className="w-[100px] h-[100px] mx-auto" /></div>}> */}
         {/* <About />
         <Products />
         <Lenses />
@@ -37,7 +38,7 @@ const Home = () => {
         <Lensess/>
         <Choose />
         <HappyCustomers />
-      </Suspense>
+      {/* </Suspense> */}
 
       {/* Get Quote / Contact Section */}
       <GetQuote backgroundImage={contactSectionBg} />

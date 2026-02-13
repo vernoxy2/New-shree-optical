@@ -1,42 +1,46 @@
-import ScrollToTop from './components/scrollToTop/ScrollToTop';
+import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from './screens/home/Home';
-import AboutUs from './screens/aboutUs/AboutUs';
-import Footer from './components/footer/Footer';
-import MensProduct from './screens/productCategory/mensProduct/MensProduct';
-import WomensProduct from './screens/productCategory/womensProduct/WomensProduct';
-import KidsProduct from './screens/productCategory/kidsProduct/KidsProduct';
-import Products from './screens/products/Products';
-import ContactUs from './screens/contactUs/ContactUs';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import Footer from "./components/footer/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Suspense, useEffect, lazy } from "react";
+
+const Home = lazy(() => import("./screens/home/Home"));
+const AboutUs = lazy(() => import("./screens/aboutUs/AboutUs"));
+const Products = lazy(() => import("./screens/products/Products"));
+const ContactUs = lazy(() => import("./screens/contactUs/ContactUs"));
+const MensProduct = lazy(() => import("./screens/productCategory/mensProduct/MensProduct"));
+const WomensProduct = lazy(() => import("./screens/productCategory/womensProduct/WomensProduct"));
+const KidsProduct = lazy(() => import("./screens/productCategory/kidsProduct/KidsProduct"));
 
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // animation duration in ms
-      delay: 200, 
-      offset: 140      // delay in ms
-      // once: true,     // animation only once when scrolling down
+      duration: 1000,
+      delay: 200,
+      offset: 140,
     });
-  })
+  }, []); // also fix this (important)
 
   return (
     <Router>
       <div className="overflow-x-hidden">
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/mens-product" element={<MensProduct />} />
-          <Route path="/womens-product" element={<WomensProduct />} />
-          <Route path="/kids-product" element={<KidsProduct />} />
-        </Routes>
+
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/mens-product" element={<MensProduct />} />
+            <Route path="/womens-product" element={<WomensProduct />} />
+            <Route path="/kids-product" element={<KidsProduct />} />
+          </Routes>
+        </Suspense>
       </div>
-      <Footer/>
+
+      <Footer />
     </Router>
   );
 }

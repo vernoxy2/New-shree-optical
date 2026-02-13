@@ -24,7 +24,7 @@ const Navbar = () => {
      ${isActive(path) ? "before:w-full" : "before:w-0 hover:before:w-full"}`;
 
   return (
-    <nav className="w-8/12 mx-auto translate-y-14 lg:translate-y-16 rounded-b-3xl bg-slate-100 -mt-16 top-0 z-50">
+    <nav className="w-8/12 mx-auto translate-y-14 lg:translate-y-16 rounded-b-3xl bg-white -mt-16 top-0 z-50">
       <div
         data-aos="fade"
         className="flex flex-col sm:flex-row justify-around items-center px-3 sm:py-2 rounded-b-[20px]"
