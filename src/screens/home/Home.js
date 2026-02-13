@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, {  lazy } from "react";
 import contactSectionBg from "../../assets/ContactPageImg/contactSectionBg.png";
 import GetQuote from "../../components/getQuote/GetQuote";
 import PartnerSlider from "../../components/partnerSlider/PartnerSlider";

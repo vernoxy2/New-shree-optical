@@ -1,6 +1,5 @@
 import React from "react";
 import headerBgImg from "../../assets/HomePageImgs/headerBgImg.webp";
-import SpecsHover from "../../components/specsHover/SpecsHover";
 import PrimaryBtn from "../../components/Primarycompo/PrimaryBtn";
 import Navbar from "../../components/Navbar/Navbar";
 
